@@ -2,6 +2,7 @@ import arcade
 
 WIDTH = 800
 HEIGHT = 600
+print("Yo tambien soy un conflicto")
 
 arcade.open_window(WIDTH, HEIGHT, "Example")
 
