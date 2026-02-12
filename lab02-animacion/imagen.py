@@ -84,6 +84,46 @@ def dibujar_coche_deportivo(x, y):
     arcade.draw_circle_filled(front_wheel_x, y, 28, arcade.color.BLACK)
     arcade.draw_circle_filled(front_wheel_x, y, 18, arcade.color.SILVER)
 
+def dibujar_coche_invertido(x, y):
+    """
+    Dibuja un coche azul mirando hacia la IZQUIERDA.
+    (x, y) es el centro de la rueda trasera (la de la derecha).
+    """
+    # --- Carrocería ---
+    # Cuerpo principal (Bloque grande hacia la izquierda)
+    # x - 85 es el centro del rectángulo para que crezca hacia la izquierda
+    arcade.draw_rect_filled(arcade.XYWH(x - 85, y + 20, 240, 45), arcade.color.DODGER_BLUE)
+
+    # Techo / Cabina (Más cuadrado que el deportivo rojo)
+    arcade.draw_rect_filled(arcade.XYWH(x - 50, y + 55, 100, 30), arcade.color.DODGER_BLUE)
+    
+    # Ventana (Cristal oscuro)
+    arcade.draw_rect_filled(arcade.XYWH(x - 50, y + 55, 80, 20), arcade.color.BLACK)
+
+    # --- Detalles ---
+    # Franja de carreras blanca horizontal
+    arcade.draw_rect_filled(arcade.XYWH(x - 85, y + 30, 240, 10), arcade.color.WHITE)
+
+    # Alerón trasero (En el lado derecho, x positivo relativo al centro del cuerpo)
+    arcade.draw_rect_filled(arcade.XYWH(x + 25, y + 45, 15, 20), arcade.color.DODGER_BLUE) # Soporte
+    arcade.draw_rect_filled(arcade.XYWH(x + 25, y + 55, 40, 10), arcade.color.MIDNIGHT_BLUE) # Ala
+
+    # Faro delantero (Amarillo, en el extremo IZQUIERDO)
+    arcade.draw_rect_filled(arcade.XYWH(x - 200, y + 20, 15, 15), arcade.color.YELLOW)
+    
+    # Luz trasera (Roja, en el extremo DERECHO)
+    arcade.draw_rect_filled(arcade.XYWH(x + 30, y + 25, 10, 25), arcade.color.RED)
+
+    # --- Ruedas ---
+    # Rueda Trasera (Ancla X, Y - Derecha)
+    arcade.draw_circle_filled(x, y, 30, arcade.color.BLACK)       # Neumático
+    arcade.draw_circle_filled(x, y, 20, arcade.color.GOLD)        # Llanta dorada
+
+    # Rueda Delantera (Hacia la IZQUIERDA, restamos X)
+    front_wheel_x = x - 170
+    arcade.draw_circle_filled(front_wheel_x, y, 30, arcade.color.BLACK)
+    arcade.draw_circle_filled(front_wheel_x, y, 20, arcade.color.GOLD)
+
 
 
 
@@ -119,7 +159,9 @@ arcade.draw_lrbt_rectangle_filled(720, 820, 100, 110, arcade.color.WHITE)
 # --- Objetos ---
 
 dibujar_tractor(100, 110)
+dibujar_coche_invertido(700, 150)
 dibujar_coche_deportivo(400, 90)
+
 
 
 # --- Finish drawing ---
