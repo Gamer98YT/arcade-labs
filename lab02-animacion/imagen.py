@@ -44,6 +44,52 @@ def dibujar_tractor(x, y):
     # Nube 3: Grande, gris claro, muy transparente, más arriba
     arcade.draw_circle_filled(smoke_base_x + 12, smoke_base_y + 38, 16, (200, 200, 200, 100))
 
+def dibujar_coche_deportivo(x, y):
+    """
+    Dibuja un coche deportivo rojo en (x, y).
+    (x, y) es el centro de la rueda trasera.
+    """
+    
+    # --- Carrocería (Chassis) ---
+    # Cuerpo principal (largo y bajo)
+    # x + 85 es el centro del cuerpo respecto a la rueda trasera
+    arcade.draw_rect_filled(arcade.XYWH(x + 85, y + 15, 230, 45), arcade.color.CRIMSON)
+    
+    # Cabina (Parte superior)
+    arcade.draw_rect_filled(arcade.XYWH(x + 70, y + 50, 110, 35), arcade.color.CRIMSON)
+    
+    # Ventana (Cristal)
+    arcade.draw_rect_filled(arcade.XYWH(x + 75, y + 50, 80, 25), arcade.color.SKY_BLUE)
+
+    # --- Detalles Deportivos ---
+    # Alerón trasero (Spoiler)
+    # Soporte del alerón
+    arcade.draw_rect_filled(arcade.XYWH(x - 20, y + 35, 10, 25), arcade.color.CRIMSON)
+    # El ala del alerón
+    arcade.draw_rect_filled(arcade.XYWH(x - 20, y + 50, 40, 10), arcade.color.DARK_RED)
+
+    # Faro delantero (Amarillo)
+    arcade.draw_rect_filled(arcade.XYWH(x + 190, y + 20, 10, 15), arcade.color.YELLOW)
+    
+    # Luz trasera (Roja brillante)
+    arcade.draw_rect_filled(arcade.XYWH(x - 25, y + 20, 10, 15), arcade.color.RED)
+
+    # --- Ruedas ---
+    # Rueda Trasera (Nuestro punto de ancla X, Y)
+    arcade.draw_circle_filled(x, y, 28, arcade.color.BLACK)       # Neumático
+    arcade.draw_circle_filled(x, y, 18, arcade.color.SILVER)      # Llanta
+
+    # Rueda Delantera (Separada 170 píxeles)
+    front_wheel_x = x + 170
+    arcade.draw_circle_filled(front_wheel_x, y, 28, arcade.color.BLACK)
+    arcade.draw_circle_filled(front_wheel_x, y, 18, arcade.color.SILVER)
+
+
+
+
+
+
+
 arcade.open_window(800, 600, "Dibujo fragger")
 
 # Color de fondo
@@ -70,28 +116,11 @@ arcade.draw_lrbt_rectangle_filled(480, 580, 100, 110, arcade.color.WHITE)
 arcade.draw_lrbt_rectangle_filled(600, 700, 100, 110, arcade.color.WHITE)
 arcade.draw_lrbt_rectangle_filled(720, 820, 100, 110, arcade.color.WHITE)
 
-# --- Draw the tractor ---
+# --- Objetos ---
 
 dibujar_tractor(100, 110)
+dibujar_coche_deportivo(400, 90)
 
-# Draw the engine
-arcade.draw_rect_filled(arcade.XYWH(600, 120, 140, 70), arcade.color.GRAY)
-arcade.draw_rect_filled(arcade.XYWH(590, 105, 90, 40), arcade.color.BLACK)
-
-# Draw the smoke stack
-arcade.draw_rect_filled(arcade.XYWH(580, 175, 10, 40), arcade.color.BLACK)
-
-# Back wheel
-arcade.draw_circle_filled(490, 110, 50, arcade.color.BLACK)
-arcade.draw_circle_filled(490, 110, 45, arcade.color.BLACK_OLIVE)
-arcade.draw_circle_filled(490, 110, 35, arcade.color.OLD_LACE)
-arcade.draw_circle_filled(490, 110, 10, arcade.color.RED)
-
-# Front wheel
-arcade.draw_circle_filled(650, 90, 30, arcade.color.BLACK)
-arcade.draw_circle_filled(650, 90, 25, arcade.color.BLACK_OLIVE)
-arcade.draw_circle_filled(650, 90, 18, arcade.color.OLD_LACE)
-arcade.draw_circle_filled(650, 90, 5, arcade.color.RED)
 
 # --- Finish drawing ---
 
