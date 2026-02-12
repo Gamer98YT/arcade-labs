@@ -136,8 +136,10 @@ arcade.open_window(800, 600, "Dibujo fragger")
 arcade.set_background_color(arcade.color.AIR_SUPERIORITY_BLUE)
 arcade.start_render()
 
-# Asfalto
+# Asfalto y hierba de alrededor
 arcade.draw_lrbt_rectangle_filled(0, 800, 0, 200, (30, 31, 33))
+arcade.draw_lrbt_rectangle_filled(0, 800, 0, 50, arcade.color.BITTER_LIME)
+arcade.draw_lrbt_rectangle_filled(0, 800, 160, 200, arcade.color.BITTER_LIME)
 
 # -Dibujo de la carretera-
 
