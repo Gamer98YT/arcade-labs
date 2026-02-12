@@ -164,8 +164,8 @@ dibujar_coche_deportivo(400, 90)
 
 
 
-# --- Finish drawing ---
+# --- Fin del dibujo ---
 
-# Keep the window up until someone closes it.
+# Mantener ventana abierta hasta que el usuario la cierre
 arcade.finish_render()
 arcade.run()
