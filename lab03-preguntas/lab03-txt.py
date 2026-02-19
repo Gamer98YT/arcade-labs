@@ -19,12 +19,8 @@ def visualizar_preguntas(nombre_archivo):
 
 
 def extraer_pregunta(pregunta: str) -> dict:
-    """
-    Toma una cadena que codifica una pregunta y devuelve un diccionario.
-    Se asume el formato: "Pregunta | Respuesta Correcta | Opcion1, Opcion2, Opcion3..."
-    """
     try:
-        # Dividimos la cadena principal en sus tres partes usando '|'
+
         partes = pregunta.split('|')
         
         if len(partes) != 3:
@@ -33,7 +29,6 @@ def extraer_pregunta(pregunta: str) -> dict:
         pregunta = partes[0].strip()
         correcta = partes[1].strip()
         
-        # Dividimos las opciones usando ',' y limpiamos los espacios en blanco
         opciones_crudas = partes[2].split(',')
         opciones = [opcion.strip() for opcion in opciones_crudas]
         
@@ -48,15 +43,7 @@ def extraer_pregunta(pregunta: str) -> dict:
         return {}
 
 
-#cadena_entrada = "¿Cuál es la capital de España? | Madrid | Madrid, Barcelona, Sevilla, Toledo"
-#resultado = extraer_pregunta(cadena_entrada)
-
-#print(resultado) 
 def visualizar_preguntas_una_a_una(nombre_archivo):
-    """
-    Lee el archivo, extrae las preguntas usando extraer_pregunta() 
-    y las muestra pausando la ejecución entre cada una.
-    """
     try:
         with open(nombre_archivo, "r", encoding="utf-8") as archivo:
             for numero_pregunta, linea in enumerate(archivo, start=1):
@@ -103,27 +90,24 @@ def jugar_preguntas(nombre_archivo):
                     print(datos["pregunta"])
                     print("-" * 30)
                     
-                    # Imprimimos las opciones enumeradas
                     for i, opcion in enumerate(datos["opciones"], start=1):
                         print(f" {i}) {opcion}")
                     
                     print("-" * 30)
                     
-                    # Bucle para asegurarnos de que el usuario introduce una opción válida
                     opcion_elegida = ""
                     while True:
                         respuesta_input = input("Elige el número de tu respuesta: ")
                         
-                        # Verificamos si es un número y si está en el rango de opciones
+                        
                         if respuesta_input.isdigit():
                             indice_elegido = int(respuesta_input) - 1
                             if 0 <= indice_elegido < len(datos["opciones"]):
                                 opcion_elegida = datos["opciones"][indice_elegido]
-                                break  # Salimos del bucle si la entrada es correcta
+                                break 
                         
                         print("Entrada no válida. Por favor, introduce el número de una de las opciones.")
                     
-                    # Comprobamos si ha acertado
                     if opcion_elegida == datos["correcta"]:
                         puntuacion += 5
                         print("¡Correcto! Sumas 5 puntos.")
@@ -142,9 +126,5 @@ def jugar_preguntas(nombre_archivo):
                     
     except FileNotFoundError:
         print(f"Error: El archivo '{nombre_archivo}' no se ha encontrado.")
-
-#visualizar_preguntas_una_a_una("lab03-preguntas/preguntas.txt")
-
-#visualizar_preguntas("lab03-preguntas/preguntas.txt")
 
 jugar_preguntas("lab03-preguntas/preguntas.txt")
