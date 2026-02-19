@@ -16,7 +16,7 @@
     },
     {
       "pregunta": "¿La tortilla de patata lleva cebolla?",
-      "correcta": "Jamás",
+      "correcta": "Sí",
       "opciones": ["Jamás", "Sí", "No con excepciones", "Tal vez"]
     }
 ]
