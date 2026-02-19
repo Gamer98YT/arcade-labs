@@ -1,5 +1,5 @@
-¿Cuál es la capital de España?|Madrid|Barcelona|Sevilla|Toledo
-¿Cuál es la victoria mas ansiada por los fans de Fernando Alonso estos ultimos años?|1|20|33|0
-¿Sistema operativo mas usado en el mundo?|Windows|Linux|MacOS|Proxmod
-¿Cual de las siguientes marcas de automobiles NO es francesa?|Bugatti|Citröen|Renault|Abarth
-¿Que lenguaje de programacion es interprete?|Java|Python|C++|Delphi
+¿Cuál es la capital de España?|Madrid|Madrid, Barcelona, Sevilla, Toledo
+¿Cuál es la victoria mas ansiada por los fans de Fernando Alonso estos ultimos años?|33|1, 20, 33, 0
+¿Sistema operativo mas usado en el mundo?|Windows|Windows, Linux, MacOS, CasaOS
+¿Cual de las siguientes marcas de automobiles NO es francesa?|Abarth|Bugatti, Citröen, Renault, Abarth
+¿Que lenguaje de programacion es interprete?|Python|Java, Python, C++, Delphi
